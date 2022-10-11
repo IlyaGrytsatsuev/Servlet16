@@ -1,0 +1,3 @@
+Animals: goose elephant duck
+Fish: salmon shark 
+Trees: apple_tree christmas-tree
