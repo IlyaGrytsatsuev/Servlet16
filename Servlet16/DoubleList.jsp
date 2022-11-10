@@ -18,29 +18,40 @@
   int size = tmp.keySet().size()+1;
     %>
     
-    <body onload="hideAll(<%=size%>);">
+    <body onload="Start(<%=size%>);">
+    
+    <input type="button" id="HideButton" value="hide All" onclick="changeVisibility(<%=size%>)"/>
+    <input type="button" id="DelButton" value="Delete All" onclick="deleteAll(<%=size%>)"/>
+    
+    <div id="List" >
     <ol>
     <%for(String key : tmp.keySet()){
-    UpCount++;
+    	UpCount++;
+    	ArrayList<String> subList = tmp.get(key);
     %>
-   
     <li> <%=key%> <input type="button" id="<%=UpCount%>Button" value="+" onclick="openList(<%=UpCount%>)"/>
- 
    <div id="<%=UpCount%>">
         <ul>
-            <% ArrayList<String> subList = tmp.get(key);
-            for(int i = 0; i < subList.size(); i++){
-                String s = (String)subList.get(i);
+            <% 
+            if(!subList.isEmpty()){
+            	for(int i = 0; i < subList.size(); i++){
+                	String s = (String)subList.get(i);
             %>
                 <li><%=s%></li>
-            <%}%>
+            <%}
+            }
+            else{%>
                
+               <%}%>
         </ul>
         </div>
         </li>
-    <%}%>
+
+    <%
+    }
+     %>
     </ol>
-    
+    </div>
     <script src="ListOpener.js"></script>
 
   </body>

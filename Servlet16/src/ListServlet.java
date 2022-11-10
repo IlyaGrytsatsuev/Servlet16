@@ -19,6 +19,19 @@ public class ListServlet extends HttpServlet {
             e.printStackTrace();
         }
     }
+    
+    
+    public void doPost(HttpServletRequest request, HttpServletResponse response) {
+        try{
+	   
+	    	list.readFile();
+            	list.writeFile();
+	    
+        }
+        catch(Exception e){
+
+        }
+    }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) {
         try{
